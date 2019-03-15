@@ -1,14 +1,16 @@
-<div class="container main-container">
+<div class="container-fluid main-container">
 
     <h1>Canal de Youtube</h1>
     <hr>
 
     <div class="row" *ngIf="videos">
-        <div class="card tarjetas" style="width: 17rem;" *ngFor="let v of videos">
-            <img [src]="v.thumbnails.high.url" class="card-img-top" [alt]="v.title">
-            <div class="card-body">
-                <h5 class="card-title">{{ v.title }}</h5>
-                <button (click)="verVideo(v)" type="button" class="btn btn-outline-primary btn-block">Ver video</button>
+        <div class="col-12 col-sm-3 col-xl-2" *ngFor="let v of videos">
+            <div class="card tarjetas ancho">
+                <img [src]="v.thumbnails.high.url" class="card-img-top" [alt]="v.title">
+                <div class="card-body">
+                    <h5 class="card-title">{{ v.title }}</h5>
+                    <button (click)="verVideo(v)" type="button" class="btn btn-outline-primary btn-block">Ver video</button>
+                </div>
             </div>
         </div>
     </div>
@@ -25,9 +27,9 @@
         </div>
 
     </div> -->
-
-    <button type="button" class="btn btn-outline-primary btn-block btn-lg" (click)="loadMore()">Cargar más videos</button>
-
+    <div class="separa">
+        <button type="button" class="btn btn-outline-primary btn-block btn-lg" (click)="loadMore()">Cargar más videos</button>
+    </div>
 </div>
 
 <!-- Modal -->

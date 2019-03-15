@@ -8,9 +8,14 @@ declare var $: any;
   templateUrl: './home.component.html',
   styles: [
     `
+    .separa{
+     margin-top: 10px;
+    }
+    .ancho {
+      width: 100%;
+    }
     .tarjetas {
       padding: 5px;
-      margin: 5px;
       margin-top: 5px;
     }
     `
