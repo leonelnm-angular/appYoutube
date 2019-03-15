@@ -1,0 +1,52 @@
+<div class="container main-container">
+
+    <h1>Canal de Youtube</h1>
+    <hr>
+
+    <div class="row" *ngIf="videos">
+        <div class="card tarjetas" style="width: 17rem;" *ngFor="let v of videos">
+            <img [src]="v.thumbnails.high.url" class="card-img-top" [alt]="v.title">
+            <div class="card-body">
+                <h5 class="card-title">{{ v.title }}</h5>
+                <button (click)="verVideo(v)" type="button" class="btn btn-outline-primary btn-block">Ver video</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div class="card-columns" *ngIf="videos">
+
+        <div class="card animated fadeIn fast" *ngFor="let v of videos">
+            <img [src]="v.thumbnails.high.url" class="card-img-top" [alt]="v.title">
+            <div class="card-body">
+                <h5 class="card-title">{{ v.title }}</h5>
+                <button (click)="verVideo(v)" type="button" class="btn btn-outline-primary btn-block">Ver video</button>
+            </div>
+        </div>
+
+    </div> -->
+
+    <button type="button" class="btn btn-outline-primary btn-block btn-lg" (click)="loadMore()">Cargar más videos</button>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+        <div class="modal-content" *ngIf="video">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ video.title }}</h5>
+            </div>
+            <div class="modal-body">
+
+                <iframe width="100%" height="315" [src]="video.resourceId.videoId | videoYoutube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
